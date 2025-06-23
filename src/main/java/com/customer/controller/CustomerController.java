@@ -2,6 +2,7 @@ package com.customer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,4 +41,10 @@ public class CustomerController {
 		return ResponseEntity.ok(response);
 	}
 
+	// Delete CustomerData By ID
+	@DeleteMapping("/delete/{customer_id}")
+	private void deleteById(@PathVariable("customer_id") Integer customer_id) {
+		customerService.deleteById(customer_id);
+
+	}
 }
